@@ -63,7 +63,7 @@
             <a class="py-2 d-none d-md-inline-block" href="#">师资队伍</a>
             <a class="py-2 d-none d-md-inline-block" href="#">新闻公告</a>
             <a class="py-2 d-none d-md-inline-block" href="#">就业指导</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">
+            <a class="py-2 d-none d-md-inline-block" href="http://localhost:8080/">
                 管理员登录
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
@@ -167,7 +167,7 @@
         },
         created(){
             var _this = this
-            axios.get("/card/getall").then(
+            axios.get("/card/get6").then(
                 (resp)=>{
                     _this.cards = resp.data
                 }

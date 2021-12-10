@@ -8,3 +8,14 @@ spring:
     password: 2019214081
     url: jdbc:mysql://123.57.27.150:3306/2019214081
     type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 3000
+      idle-timeout: 60000
+      login-timeout: 5
+      max-lifetime: 60000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      read-only: false
+
+
