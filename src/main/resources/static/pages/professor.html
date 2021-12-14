@@ -1,12 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>新闻</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,40 +22,7 @@
 
     <script src="../js/axios-0.18.0.js"></script>
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/product.css" rel="stylesheet">
-
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        /*.container-fluid{*/
-        /*    max-width: 960px;*/
-        /*}*/
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/blog.css" rel="stylesheet">
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -140,35 +103,35 @@
 </nav>
 
 
+<div class="container marketing">
+    <br>
+
+    <h3 class="display-4 text-center" >软件工程专业任职教授</h3>
 
 
+    <hr class="featurette-divider">
 
-<main role="main" class="container-fluid text-center">
-    <div class="row" id="app">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 blog-main">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">邱兆文　<span class="text-muted">博士，教授，硕士生导师</span></h2>
+            <p class="lead">博士毕业于哈工大，美国卡内基梅隆大学访问学者。东北林业大学三维数字化技术研究所所长。黑龙江省医学影像三维可视化与3D打印工程技术中心主任。拓盟科技董事长。CCF杰出会员，CCF理事，CCF计算机应用专委委员，CCF教育专委委员，中国抗癌协会肿瘤人工智能专委委员。主要研究方向为信息检索、人工智能、增强现实。主持参加国家自然科学基金、科技部中央引导地方重大专项基金、国家发改委产业化基金等18项。获国家发明专利4项。在IEEE Transaction on Medical Imaging 等SCI期刊发表论文13篇。主编专著1部。获省科技进步三等奖 2项，2016年获第五届“中国创新创业大赛”互联网及移动互联网行业企业组第三名 。2020年获第四届“中国创翼”创业创新大赛全国三等奖。2018年入选科技部创新人才推进计划，2019年入选万人计划领军人才。2019年获黑龙江省十大杰出创业青年。2020年挑战杯国赛金奖指导教师。哈工大客座教授。</p>
+        </div>
+        <div class="col-md-5">
+            <img src="../img/qiuzhaowen.jpg" width="500" HEIGHT="500">
+        </div>
+    </div>
 
+    <hr class="featurette-divider">
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{ card.title }}</h2>
-                <p class="blog-post-meta">{{ card.timestamp }}</p>
-                <img :src="CardPic()" class="img-fluid">
-                <hr>
-                <p>{{ card.text }}</p>
+    <br>
+    <br>
+    <br>
+    <br>
 
-            </div><!-- /.blog-post -->
-
-
-        </div><!-- /.blog-main -->
-        <div class="col-md-1"></div>
-
-
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
+</div><!-- /.container -->
 
 <footer class="blog-footer">
-    <p>This page was assembled by <a href="https://github.com/Yasuomvp">
+    <p>This page was assembled by <a href="https://github.com/Yasuomvp/WebCourseDesign">
         Guo Shibiao
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
              viewBox="0 0 16 16">
@@ -179,35 +142,6 @@
         <a href="#">Back to top</a>
     </p>
 </footer>
+
 </body>
-<script>
-    const vue = new Vue({
-        el: '#app',
-        data:{
-            card:{},
-        },
-        created(){
-            var _this = this
-            var _id = this.GetQueryString('id')
-
-            axios.get("/card/getById/"+_id).then(
-                (resp)=>{
-                    _this.card = resp.data
-                }
-            )
-
-        },
-        methods:{
-            GetQueryString:function(name){
-                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if(r!=null)return  unescape(r[2]); return null;
-            },
-            CardPic(){
-                return "../img/" + this.card.pic
-            }
-        }
-
-    });
-</script>
 </html>

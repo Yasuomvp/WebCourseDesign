@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>软件工程主页</title>
 
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -45,6 +45,8 @@
                 font-size: 3.5rem;
             }
         }
+        
+
     </style>
 </head>
 <body>
@@ -55,24 +57,76 @@
     <nav class="site-header sticky-top py-1">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <a>
-                <img style="height:45px" src="../img/logo.png">
+                <img style="height:55px" src="../img/logo1.png">
             </a>
-            <a class="py-2 d-none d-md-inline-block" href="main.html">首页</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">专业介绍</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">实验室</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">师资队伍</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">新闻公告</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">就业指导</a>
-            <a class="py-2 d-none d-md-inline-block" href="http://localhost:8080/">
-                管理员登录
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                          d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
-                    <path fill-rule="evenodd"
-                          d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg>
-            </a>
+
+            <button type="button" class="btn dropdown-toggle">
+                <a class="py-2 d-none d-md-inline-block" href="main.html">专业首页</a>
+            </button>
+
+            <button type="button" class="btn dropdown-toggle">
+                <a class="py-2 d-none d-md-inline-block" href="introduce.html">专业介绍</a>
+            </button>
+
+
+            <div class="dropdown" id="drop1">
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu" data-toggle="dropdown">
+                    <a class="py-2 d-none d-md-inline-block" href="#">实验室</a>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="menu1">
+                    <li role="presentation">
+                        <button type="button" class="btn dropdown-toggle">
+                            <a class="py-2 d-none d-md-inline-block" href="laboratory923.html">923创新实验室</a>
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button type="button" class="btn dropdown-toggle">
+                            <a class="py-2 d-none d-md-inline-block" href="laboratory935.html">925移动开发实验室</a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="dropdown" id="drop2">
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown">
+                    <a class="py-2 d-none d-md-inline-block" href="#">教师队伍</a>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="menu2">
+                    <li role="presentation">
+                        <button type="button" class="btn dropdown-toggle">
+                            <a class="py-2 d-none d-md-inline-block" href="professor.html">教授</a>
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button type="button" class="btn dropdown-toggle">
+                            <a class="py-2 d-none d-md-inline-block" href="associateprofessor.html">副教授</a>
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button type="button" class="btn dropdown-toggle">
+                            <a class="py-2 d-none d-md-inline-block" href="teacher.html">讲师</a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn dropdown-toggle">
+                <a class="py-2 d-none d-md-inline-block" href="newslist.html">新闻公告</a>
+            </button>
+
+
+
+            <button type="button" class="btn dropdown-toggle">
+                <a class="py-2 d-none d-md-inline-block" href="http://49.232.252.219:8080/">
+                    管理员登录
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                        <path fill-rule="evenodd"
+                              d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg>
+                </a>
+            </button>
 
         </div>
     </nav>
@@ -159,6 +213,9 @@
 </div>
 </body>
 <script>
+
+
+
     const vue = new Vue({
         el: '#app',
         data:{

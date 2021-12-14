@@ -1,12 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>新闻</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,42 +22,10 @@
 
     <script src="../js/axios-0.18.0.js"></script>
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/product.css" rel="stylesheet">
-
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        /*.container-fluid{*/
-        /*    max-width: 960px;*/
-        /*}*/
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/blog.css" rel="stylesheet">
 </head>
 <body>
+
 <nav class="site-header sticky-top py-1">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a>
@@ -139,36 +103,29 @@
     </div>
 </nav>
 
+<br>
 
+<h3 class="display-4 text-center" >全部新闻</h3>
 
+<br>
 
+<div id="app" class="list-group m-auto" style="width: 1000px">
+    <a @click="forwardTo(card.id)" class="list-group-item list-group-item-action" v-for="(card,index) in cards">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">No.{{index+1}} {{card.title}}</h5>
+            <small>{{card.timestamp}}</small>
+        </div>
+        <p class="mb-1"> </p>
+        <small>点击查看详情</small>
+    </a>
 
-<main role="main" class="container-fluid text-center">
-    <div class="row" id="app">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 blog-main">
+</div>
 
+<br>
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{ card.title }}</h2>
-                <p class="blog-post-meta">{{ card.timestamp }}</p>
-                <img :src="CardPic()" class="img-fluid">
-                <hr>
-                <p>{{ card.text }}</p>
-
-            </div><!-- /.blog-post -->
-
-
-        </div><!-- /.blog-main -->
-        <div class="col-md-1"></div>
-
-
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
 
 <footer class="blog-footer">
-    <p>This page was assembled by <a href="https://github.com/Yasuomvp">
+    <p>This page was assembled by <a href="https://github.com/Yasuomvp/WebCourseDesign">
         Guo Shibiao
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
              viewBox="0 0 16 16">
@@ -179,32 +136,34 @@
         <a href="#">Back to top</a>
     </p>
 </footer>
+
+
 </body>
+
 <script>
+
+
+
     const vue = new Vue({
         el: '#app',
         data:{
-            card:{},
+            cards:[],
         },
         created(){
             var _this = this
-            var _id = this.GetQueryString('id')
-
-            axios.get("/card/getById/"+_id).then(
+            axios.get("/card/getall").then(
                 (resp)=>{
-                    _this.card = resp.data
+                    _this.cards = resp.data
                 }
             )
 
         },
         methods:{
-            GetQueryString:function(name){
-                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if(r!=null)return  unescape(r[2]); return null;
+            forwardTo:function(id){
+                window.open("cardInfo.html?id="+id)
             },
-            CardPic(){
-                return "../img/" + this.card.pic
+            imgSrc:function(picName){
+                return "../img/"+picName
             }
         }
 

@@ -1,12 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>新闻</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,40 +22,7 @@
 
     <script src="../js/axios-0.18.0.js"></script>
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/product.css" rel="stylesheet">
-
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        /*.container-fluid{*/
-        /*    max-width: 960px;*/
-        /*}*/
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/blog.css" rel="stylesheet">
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -140,35 +103,38 @@
 </nav>
 
 
+<div class="container marketing">
+    <br>
+
+    <h3 class="display-4 text-center" >软件工程专业任职魔法师</h3>
 
 
+    <hr class="featurette-divider">
 
-<main role="main" class="container-fluid text-center">
-    <div class="row" id="app">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 blog-main">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">王波　<span class="text-muted">讲师，硕士</span></h2>
+            <p class="lead">
+                毕业于银河帝国川陀大学数学系，任第一帝国克里昂一世皇帝的御前首相，川陀大学心理史学系荣誉教授，霍格沃茨魔法学院访问学者，心理史学研究计划主持人、银河百科全书执行编辑。心理史学创始人之一（另一位是雨果·阿玛瑞尔），同时也是基地创始人。被认为是第二基地第一任首席发言者，后来也成为基地的传奇英雄。
+                目前致力于超光速曲率引擎宇宙飞船研究，威慑纪元最后一位面壁者，手握引力波天线发射器开关，同时也是青青草原羊村名誉副村长。
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="../img/bobo.jpg" width="500" HEIGHT="500">
+        </div>
+    </div>
 
+    <hr class="featurette-divider">
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{ card.title }}</h2>
-                <p class="blog-post-meta">{{ card.timestamp }}</p>
-                <img :src="CardPic()" class="img-fluid">
-                <hr>
-                <p>{{ card.text }}</p>
+    <br>
+    <br>
+    <br>
+    <br>
 
-            </div><!-- /.blog-post -->
-
-
-        </div><!-- /.blog-main -->
-        <div class="col-md-1"></div>
-
-
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
+</div><!-- /.container -->
 
 <footer class="blog-footer">
-    <p>This page was assembled by <a href="https://github.com/Yasuomvp">
+    <p>This page was assembled by <a href="https://github.com/Yasuomvp/WebCourseDesign">
         Guo Shibiao
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
              viewBox="0 0 16 16">
@@ -179,35 +145,6 @@
         <a href="#">Back to top</a>
     </p>
 </footer>
+
 </body>
-<script>
-    const vue = new Vue({
-        el: '#app',
-        data:{
-            card:{},
-        },
-        created(){
-            var _this = this
-            var _id = this.GetQueryString('id')
-
-            axios.get("/card/getById/"+_id).then(
-                (resp)=>{
-                    _this.card = resp.data
-                }
-            )
-
-        },
-        methods:{
-            GetQueryString:function(name){
-                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if(r!=null)return  unescape(r[2]); return null;
-            },
-            CardPic(){
-                return "../img/" + this.card.pic
-            }
-        }
-
-    });
-</script>
 </html>

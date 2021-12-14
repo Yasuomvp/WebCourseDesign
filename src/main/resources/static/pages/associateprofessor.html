@@ -1,12 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>新闻</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,40 +22,7 @@
 
     <script src="../js/axios-0.18.0.js"></script>
 
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/product.css" rel="stylesheet">
-
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        /*.container-fluid{*/
-        /*    max-width: 960px;*/
-        /*}*/
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/blog.css" rel="stylesheet">
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -140,35 +103,48 @@
 </nav>
 
 
+<div class="container marketing">
+    <br>
+
+    <h3 class="display-4 text-center" >软件工程专业任职副教授</h3>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">李莉　<span class="text-muted">博士，副教授，硕士生导师</span></h2>
+            <p class="lead">
+                东北林业大学青年成栋名师、软件工程专业主任、专业党支部书记。美国加州大学（河滨）访问学者。主持和参加国家级、省部级各类科研、教研项目15项，各级各类获奖10余项，作为第一作者发表SCI、EI、中文核心期刊等论文20余篇、主编教材4部。主持国家级一流本科课程、黑龙江省线上线下精品课程、东北林业大学一流本科课程、东北林业大学重点课程。获得第二届全国高校混合式教学设计创新大赛一等奖、华为产学合作专项奖；2次入选黑龙江省在线教学优秀案例；多次获得东北林业大学教学质量优秀奖、教学改革奖、教书育人先进个人称号。
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="../img/lily.png" width="500" HEIGHT="500">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">张锡英　<span class="text-muted">副教授，硕士，硕士生导师</span></h2>
+            <p class="lead">
+                主要研究方向：现代信息技术及网络应用，数据库技术、图像检索。主持或参加科研项目 11 项，发表论文 9 篇，出版教材 2 部。获得省级科学技术进步奖1次， 2 门课精品课主讲教师。
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="../img/zhangxiying.jpg" width="500" HEIGHT="500">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
 
 
 
-<main role="main" class="container-fluid text-center">
-    <div class="row" id="app">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 blog-main">
-
-
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{ card.title }}</h2>
-                <p class="blog-post-meta">{{ card.timestamp }}</p>
-                <img :src="CardPic()" class="img-fluid">
-                <hr>
-                <p>{{ card.text }}</p>
-
-            </div><!-- /.blog-post -->
-
-
-        </div><!-- /.blog-main -->
-        <div class="col-md-1"></div>
-
-
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
+</div><!-- /.container -->
 
 <footer class="blog-footer">
-    <p>This page was assembled by <a href="https://github.com/Yasuomvp">
+    <p>This page was assembled by <a href="https://github.com/Yasuomvp/WebCourseDesign">
         Guo Shibiao
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
              viewBox="0 0 16 16">
@@ -179,35 +155,6 @@
         <a href="#">Back to top</a>
     </p>
 </footer>
+
 </body>
-<script>
-    const vue = new Vue({
-        el: '#app',
-        data:{
-            card:{},
-        },
-        created(){
-            var _this = this
-            var _id = this.GetQueryString('id')
-
-            axios.get("/card/getById/"+_id).then(
-                (resp)=>{
-                    _this.card = resp.data
-                }
-            )
-
-        },
-        methods:{
-            GetQueryString:function(name){
-                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if(r!=null)return  unescape(r[2]); return null;
-            },
-            CardPic(){
-                return "../img/" + this.card.pic
-            }
-        }
-
-    });
-</script>
 </html>

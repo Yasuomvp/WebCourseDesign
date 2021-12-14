@@ -1,10 +1,31 @@
 .container {
-  max-width: 960px;
+  max-width: 1200px;
 }
 
 /*
  * Custom translucent site header
  */
+.dropdown-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  z-index:1000;
+  display:none;
+  float:left;
+  min-width:105px;
+  padding:5px 0;
+  margin:2px 0 0;
+  font-size:14px;
+  text-align:left;
+  list-style:none;
+  background-color: rgb(38,38,38);
+  background-clip:padding-box;
+  border:1px solid #ccc;
+  border:1px solid rgb(38,38,38);
+  border-radius:4px;
+  -webkit-box-shadow:0 6px 12px rgb(38,38,38);
+  :0 6px 12px rgb(38,38,38);
+}
 
 .site-header {
   background-color: rgba(0, 0, 0, .85);
